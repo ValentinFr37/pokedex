@@ -5,7 +5,7 @@ interface pokemonInterface {
   }
 }
 
-function PokemonCard({ pokemon }) {
+function PokemonCard({ pokemon }: pokemonInterface) {
   
 
   
