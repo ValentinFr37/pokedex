@@ -4,6 +4,7 @@ import viteLogo from '/vite.svg'
 import PokemonCard from './components/PokemonCard'
 
 import "./App.css";
+import PokemonButton from './components/PokemonButton';
 
 const pokemonList = [
   {
@@ -14,12 +15,27 @@ const pokemonList = [
   {
     name: "mew",
   },
+  {
+    name: "Jigglypuff",
+    imgSrc:"https://www.pokepedia.fr/images/thumb/c/cd/Rondoudou-RFVF.png/375px-Rondoudou-RFVF.png"
+    
+  }
 ];
 
 function App() {
+  const [pokemonSelect, setPokemonSelect] = useState(pokemonList[0])
+
+
   return (
     <div>
-      <PokemonCard pokemon={pokemonList[0]} />
+      <PokemonCard pokemon={pokemonSelect} />
+
+      {pokemonList.map((pokemon) => (
+      <PokemonButton
+          name={pokemon.name}
+          onClick={() => setPokemonSelect(pokemon)}
+        />
+      ))}
     </div>
   );
 }
