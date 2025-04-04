@@ -5,7 +5,7 @@ import PokemonCard from './components/PokemonCard'
 
 import "./App.css";
 import PokemonButton from './components/PokemonButton';
-
+{/** Tableaux des pokemon **/}
 const pokemonList = [
   {
     name: "bulbasaur",
@@ -13,25 +13,39 @@ const pokemonList = [
       "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png",
   },
   {
-    name: "mew",
+    name: "charmander",
+    imgSrc:
+      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/4.png",
   },
   {
-    name: "Jigglypuff",
-    imgSrc:"https://www.pokepedia.fr/images/thumb/c/cd/Rondoudou-RFVF.png/375px-Rondoudou-RFVF.png"
-    
+    name: "squirtle",
+    imgSrc:
+      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/7.png",
+  },
+  {
+    name: "pikachu",
+    imgSrc:
+      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png",
+  },
+  {
+    name: "mew",
   }
 ];
-
+{/**  **/}
 function App() {
+
+  {/*State qui sert à changer de facon dynamique le pokemon selectionné*/}
   const [pokemonSelect, setPokemonSelect] = useState(pokemonList[0])
 
 
   return (
     <div>
+      {/**  **/}
       <PokemonCard pokemon={pokemonSelect} />
 
       {pokemonList.map((pokemon) => (
       <PokemonButton
+          key={pokemon.name}
           name={pokemon.name}
           onClick={() => setPokemonSelect(pokemon)}
         />
@@ -39,5 +53,5 @@ function App() {
     </div>
   );
 }
-
+    
 export default App;
